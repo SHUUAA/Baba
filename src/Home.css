@@ -1,0 +1,148 @@
+/* General Styling */
+body {
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: 100vh;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  padding: 10px;
+}
+
+/* Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 400px;
+  width: 90%; /* Adjusts to screen size */
+  text-align: center;
+  position: relative;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+/* Text */
+.message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #b56576;
+  margin-bottom: 10px;
+}
+
+/* Image Styling */
+.image-ror {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+img {
+  width: 80%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Buttons */
+/* Buttons Container */
+.b-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Force "Yes" button to move right when "No" disappears */
+.b-container.center {
+  justify-content: flex-end !important; /* Ensure it overrides any other justify-content */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  min-width: 100px;
+}
+
+/* Yes Button - Darker Pink */
+.yes {
+  background-color: #d16ba5;
+  color: white;
+}
+
+.yes:hover {
+  background-color: #c25592;
+}
+
+/* No Button - Lightest Pink */
+.no {
+  background-color: #ffdde1;
+  color: #b56576;
+}
+
+.no:hover {
+  background-color: #f6d8d8;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .message {
+    font-size: 1.2rem;
+  }
+
+  .b-container {
+    justify-content: space-around;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 8px 15px;
+    min-width: 80px;
+  }
+
+  img {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    width: 95%;
+    min-height: 70vh;
+    padding: 15px;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .b-container {
+    margin-right: 30%;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
