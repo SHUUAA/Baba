@@ -12,10 +12,31 @@ export const Home = () => {
   const [imageIndex, setImageIndex] = useState(0);
   const [yesClicked, setYesClicked] = useState(false); // Track if Yes is clicked
 
-  const changeImage = () => {
-    setImageIndex((prevIndex) => (prevIndex + 1) % images.length); // Cycle through images
+  // Function to create falling hearts
+  const handleHeartRain = () => {
+    const heartContainer = document.createElement("div");
+    heartContainer.classList.add("heart-container");
+
+    for (let i = 0; i < 50; i++) {
+      // Number of hearts
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+      heart.style.animationDuration = `${Math.random() * 2 + 3}s`; // Random fall speed
+
+      heartContainer.appendChild(heart);
+
+      // Remove heart after animation ends
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    document.body.appendChild(heartContainer);
   };
 
+  // Handle "No" button click
   const handleNoClick = () => {
     if (noClicks < 2) {
       const randomTop = Math.floor(Math.random() * 200 - 100) + "px";
@@ -23,11 +44,13 @@ export const Home = () => {
       setPosition({ top: randomTop, left: randomLeft });
     }
     setNoClicks(noClicks + 1);
-    changeImage(); // Change image on "No" click
+    setImageIndex((prevIndex) => (prevIndex + 1) % images.length); // Cycle through images
   };
 
+  // Handle "Yes" button click
   const handleYesClick = () => {
-    setYesClicked(true); // Set Yes clicked state to true
+    setYesClicked(true);
+    handleHeartRain(); // Trigger heart rain effect
   };
 
   return (

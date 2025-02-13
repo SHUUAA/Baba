@@ -146,3 +146,32 @@ button {
     padding: 6px 12px;
   }
 }
+
+/* ❤️ Falling Hearts Effect */
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none; /* Prevent interaction */
+  z-index: 9999;
+}
+
+.heart {
+  position: absolute;
+  top: -50px;
+  font-size: 2rem;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+}
